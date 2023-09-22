@@ -159,7 +159,7 @@
     var url = baseUrl + token + '&' + nome + '&' + email + '&' + celular;
 	    
         // Envia os dados para o segundo método POST
-        fetch('url', {
+        fetch(url, {
             method: 'POST',
             body: formData
         })
