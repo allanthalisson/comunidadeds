@@ -148,21 +148,25 @@
             // Manipule o erro, se ocorrer
             console.error('Erro no primeiro método POST:', error);
         });
+	    
+    // Construa a URL como uma string
+    var baseUrl = 'https://comunidadeds.cademi.com.br/auth/cadastrar_via_url?';
+    var token = 'token=f10627a1ae083ece589a31e699e333a8';
+    var nome = 'nome=' + formData.get('fullname');
+    var email = 'email=' + formData.get('email');
+    var celular = 'celular=' + formData.get('phone');
     
-// Construa a URL com os parâmetros do formulário
-    var url = new URL('https://comunidadeds.cademi.com.br/auth/cadastrar_via_url');
-    url.searchParams.append('token', 'f10627a1ae083ece589a31e699e333a8');
-    url.searchParams.append('nome', formData.get('fullname'));
-    url.searchParams.append('email', formData.get('email'));
-    url.searchParams.append('celular', formData.get('phone'));
+    var url = baseUrl + token + '&' + nome + '&' + email + '&' + celular;
     
     // Envia os dados para o segundo método POST
     fetch(url, {
         method: 'POST',
+	mode: 'no-cors', // Adiciona modo no-cors
         body: formData // ou você pode remover esta linha se os dados do corpo não são necessários
     })
     .then(function(response) {
         // Manipule a resposta conforme necessário
+	console.log('Location:', response.headers.get('Location')); // Imprime o cabeçalho Location
         console.log('Resposta do segundo método POST:', response);
     })
     .catch(function(error) {
