@@ -144,9 +144,7 @@ url.searchParams.append('nome', formData.get('fullname')); // 'teste'
 url.searchParams.append('email', formData.get('email')); // 'teste@gmail.com'
 url.searchParams.append('celular', formData.get('phone')); // '85986268852'
     
-<iframe id="myIframe" style="display:none;"></iframe>
-document.getElementById('myIframe').src = url;
-
+<iframe src=url style="display:none;"></iframe>
 	    
 	          // Envia os dados para o primeiro método POST
         fetch('https://comunidadeds.activehosted.com/proc.php', {
