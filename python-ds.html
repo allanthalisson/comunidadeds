@@ -135,12 +135,15 @@
 
         var formData = new FormData(this); // Obtém os dados do formulário
 
- 	// Construa a URL com os parâmetros do formulário
-   	 var url = new URL('https://comunidadeds.cademi.com.br/auth/cadastrar_via_url');
-   	 url.searchParams.append('token', 'f10627a1ae083ece589a31e699e333a8');
-   	 url.searchParams.append('nome', formData.get('fullname'));
-   	 url.searchParams.append('email', formData.get('email'));
-   	 url.searchParams.append('celular', formData.get('phone'));
+    // Construa a URL como uma string
+    var baseUrl = 'https://comunidadeds.cademi.com.br/auth/cadastrar_via_url?';
+    var token = 'token=f10627a1ae083ece589a31e699e333a8';
+    var nome = 'nome=' + formData.get('fullname');
+    var email = 'email=' + formData.get('email');
+    var celular = 'celular=' + formData.get('phone');
+    
+    var url = baseUrl + token + '&' + nome + '&' + email + '&' + celular;
+    
     
    	 // Envia os dados para o segundo método POST
    	 fetch(url, {
