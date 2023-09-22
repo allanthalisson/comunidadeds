@@ -160,7 +160,8 @@
 	    
         // Envia os dados para o segundo método POST
         fetch(url, {
-            method: 'POST'
+            method: 'GET', // Mudado para GET, já que os dados estão na URL
+	    mode: 'no-cors' // Para contornar as restrições de CORS
         })
         .then(function(response) {
             // Manipule a resposta conforme necessário
