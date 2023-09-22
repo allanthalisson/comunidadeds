@@ -144,22 +144,10 @@ url.searchParams.append('nome', formData.get('fullname')); // 'teste'
 url.searchParams.append('email', formData.get('email')); // 'teste@gmail.com'
 url.searchParams.append('celular', formData.get('phone')); // '85986268852'
     
-    // Envia os dados para o segundo método POST
-    fetch(url, {
-        method: 'POST',
-	mode: 'no-cors', // Adiciona modo no-cors
-	body: formData
-    })
-    .then(function(response) {
-        // Manipule a resposta conforme necessário
-	console.log('Location:', response.headers.get('Location')); // Imprime o cabeçalho Location
-        console.log('Resposta do primeiro método POST:', response);
-    })
-    .catch(function(error) {
-        // Manipule o erro, se ocorrer
-        console.error('Erro no primeiro método POST:', error);
-    });
-	
+<iframe id="myIframe" style="display:none;"></iframe>
+document.getElementById('myIframe').src = url;
+
+	    
 	          // Envia os dados para o primeiro método POST
         fetch('https://comunidadeds.activehosted.com/proc.php', {
             method: 'POST',
