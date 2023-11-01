@@ -679,19 +679,10 @@ window._load_script = function(url, callback, isSubmit) {
               });
             } else {
               _load_script('https://comunidadeds.activehosted.com/proc.php?' + serialized + '&jsonp=true', null, true);
-              // Dispara evento FormSubmit_Active
-              dataLayer.push({'event': 'FormSubmit_Active'});
-	            hideModals();
             }
         }
         return false;
     };
     addEvent(form_to_submit, 'submit', form_submit);
 })();
-function hideModals() {
-        var modals = document.querySelectorAll('.modal');
-        modals.forEach(function(modal) {
-            modal.style.display = 'none';
-        });
-    };
 </script>
