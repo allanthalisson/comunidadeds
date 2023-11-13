@@ -136,7 +136,7 @@
             <input type="hidden" name="field[58]" id="utm_fbclid" value="" />
         </div>
         <div class="_button-wrapper _full_width">
-            <button id="_form_45_submit" class="_submit" type="submit">
+            <button id="_form_47_submit" class="_submit" type="submit">
                 QUERO FAZER PARTE DO PROGRAMA
             </button>
         </div>
@@ -239,7 +239,7 @@
             }
         };
         var _removed = false;
-        var form_to_submit = document.getElementById("_form_45_");
+        var form_to_submit = document.getElementById("_form_47_");
         var allInputs = form_to_submit.querySelectorAll("input, select, textarea"),
             tooltips = [],
             submitted = false;
@@ -636,8 +636,8 @@
             e.preventDefault();
             if (validate_form()) {
                 // use this trick to get the submit button & disable it using plain javascript
-                document.querySelector("#_form_45_submit").disabled = true;
-                var serialized = _form_serialize(document.getElementById("_form_45_")).replace(/%0A/g, "\\n");
+                document.querySelector("#_form_47_submit").disabled = true;
+                var serialized = _form_serialize(document.getElementById("_form_47_")).replace(/%0A/g, "\\n");
                 var err = form_to_submit.querySelector("._form_error");
                 err ? err.parentNode.removeChild(err) : false;
                 _load_script("https://comunidadeds.activehosted.com/proc.php?" + serialized + "&jsonp=true");
