@@ -143,6 +143,51 @@
         <div class="_clear-element"></div>
     </div>
     <div class="_form-thank-you" style="display: none;"></div>
+
+    <script>
+    document.getElementById('_form_47_').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio do formulário padrão
+
+        var formData = new FormData(this); // Obtém os dados do formulário
+
+        // Envia os dados para o primeiro método POST
+        fetch('https://comunidadeds.activehosted.com/proc.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(function(response) {
+            // Manipule a resposta conforme necessário
+            console.log('Resposta do primeiro método POST:', response);
+        })
+        .catch(function(error) {
+            // Manipule o erro, se ocorrer
+            console.error('Erro no primeiro método POST:', error);
+        });
+
+// Construa a URL como uma string
+    var baseUrl = 'https://alunos.comunidadeds.com/auth/cadastrar_via_url?';
+    var token = 'token=f10627a1ae083ece589a31e699e333a8';
+    var nome = 'nome=' + formData.get('fullname');
+    var email = 'email=' + formData.get('email');
+    var celular = 'celular=' + formData.get('phone');
+    
+    var url = baseUrl + token + '&' + nome + '&' + email + '&' + celular;
+	    
+        // Envia os dados para o segundo método POST
+        fetch(url, {
+            method: 'GET', // Mudado para GET, já que os dados estão na URL
+	    mode: 'no-cors' // Para contornar as restrições de CORS
+        })
+        .then(function(response) {
+            // Manipule a resposta conforme necessário
+            console.log('Resposta do segundo método POST:', response);
+        })
+        .catch(function(error) {
+            // Manipule o erro, se ocorrer
+            console.error('Erro no segundo método POST:', error);
+        });
+    });
+</script>
 </form>
 
 <script type="text/javascript">
